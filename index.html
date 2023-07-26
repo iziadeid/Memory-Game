@@ -1,0 +1,38 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/all.min.css" />
+    <title>Memory Game</title>
+  </head>
+  <body>
+    <div class="control-container start-container">
+      <h2>MEMORY GAME</h2>
+      <span class="btn start">START GAME</span>
+    </div>
+    <div class="control-container won">
+      <h2>Congratulation</h2>
+      <h3>YOU WON</h3>
+      <span class="again">Next Level</span>
+    </div>
+    <div class="control-container lose">
+      <h2>YOU LOSE</h2>
+      <span class="again">Play Again</span>
+    </div>
+    <div class="container">
+      <h2>MEMORY GAME</h2>
+      <div class="game-holder"></div>
+      <ul class="details">
+        <li id="level">Level: 1</li>
+        <li id="b-level">Best Level: 1</li>
+        <li id="turn">tryings: 0/10</li>
+      </ul>
+    </div>
+    <div class="aduio">
+      <input type="checkbox" name="aduio" id="aduio" />
+      <i class="fa-solid fa-volume-high"></i>
+    </div>
+    <script src="js/main.js"></script>
+  </body>
+</html>
