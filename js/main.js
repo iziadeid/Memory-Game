@@ -24,6 +24,10 @@ aduio.onclick = () => {
     ? (icon.className = "fa-solid fa-volume-xmark")
     : (icon.className = "fa-solid fa-volume-high");
 };
+let won = new Audio("audio/won.wav");
+let bigWon = new Audio("audio/mixkit-video-game-win-2016.wav");
+let lose = new Audio("audio/losing.wav");
+let bigLose = new Audio("audio/mixkit-negative-answer-lose-2032.wav");
 
 //Game btns
 let againBtn = document.querySelectorAll(".again");
@@ -114,9 +118,8 @@ function flipImage(image) {
       let wonContainer = document.querySelector(".won");
       wonContainer.style.display = "flex";
 
-      let won = new Audio("audio/mixkit-video-game-win-2016.wav");
       if (!aduioCheck.checked) {
-        won.play();
+        bigWon.play();
       }
 
       level.innerHTML = `Level :${++i}`;
@@ -152,25 +155,26 @@ function matchImage(fristEle, secondEle) {
     fristEle.classList.add("match");
     secondEle.classList.add("match");
 
-    function won() {
-      let won = new Audio("audio/won.wav");
+    function wonFun() {
       if (!aduioCheck.checked) {
         won.play();
       }
+      won = new Audio("audio/won.wav");
     }
-    won();
+    wonFun();
   } else {
     setTimeout(() => {
       fristEle.classList.remove("flipped");
       secondEle.classList.remove("flipped");
     }, duration);
-    lose();
-    function lose() {
-      let losing = new Audio("audio/losing.wav");
+
+    function loseFun() {
       if (!aduioCheck.checked) {
-        losing.play();
+        lose.play();
       }
+      lose = new Audio("audio/losing.wav");
     }
+    loseFun();
     if (turnsCount === turns - 1) {
       i = 1;
       turn.innerHTML = `Turns: ${++turnsCount}/${turns}`;
@@ -179,9 +183,9 @@ function matchImage(fristEle, secondEle) {
       setTimeout(() => {
         let wonContainer = document.querySelector(".lose");
         wonContainer.style.display = "flex";
-        let lose = new Audio("audio/mixkit-negative-answer-lose-2032.wav");
+
         if (!aduioCheck.checked) {
-          lose.play();
+          bigLose.play();
         }
 
         turnsCount = 0;
